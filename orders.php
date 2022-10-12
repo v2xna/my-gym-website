@@ -6,8 +6,12 @@ define("FILE_FUNCTIONS", FOLDER_FUNCTIONS . "PHPfunctions.php");
 
 require_once FILE_FUNCTIONS;
 
-pageTop("Home Page");
+pageTop("Orders Page");
 
+?>
 
+Heres my orders page
+
+<?php
 
 pageBottom();
