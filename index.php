@@ -8,6 +8,6 @@ require_once FILE_FUNCTIONS;
 
 pageTop("Home Page");
 
-
+echo "hello";
 
 pageBottom();

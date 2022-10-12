@@ -4,6 +4,9 @@
 define("FOLDER_CSS", "css/");
 define("FILE_CSS", FOLDER_CSS . "styles.css");
 
+
+
+
 function pageTop($title) {
     ?><!DOCTYPE html>
 
@@ -21,8 +24,12 @@ function pageTop($title) {
 }
 
 function pageBottom() {
+    $year = date("Y");
     
     ?>
+            <footer>
+                <p>Copyright &ltVithursan Nagalingam (2135106)&gt <?php echo $year ?>. </p>
+            </footer>
         </body></html>
     <?php
 }
