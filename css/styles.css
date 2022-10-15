@@ -1,2 +1,29 @@
+body { 
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    width: 940px;
+}
+
+.gymlogo {
+    height: 200px;
+    width: 200px;
+}
+
+.productImages {
+    height: 549px;
+    width: 732px;
+}
+
+.formContainer {
+    width: 200px;
+    clear: both;
+}
+
+.formContainer input {
+    width: 100%;
+    clear: both;
+}
+
 
 
