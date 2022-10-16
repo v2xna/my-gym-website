@@ -19,6 +19,11 @@ function pageTop($title) {
         </head>
         <body>
             <img class="gymlogo" src="<?php echo FILE_GYMLOGO; ?>" alt="Gym logo"/>
+            <nav>
+                <a href="index.php">Home</a> |
+                <a href="buying.php">Buying</a> |
+                <a href="orders.php">Orders</a>
+            </nav>
 
     <?php
 }
@@ -28,8 +33,22 @@ function pageBottom() {
     
     ?>
             <footer>
+                <hr>
                 <p>Copyright &ltVithursan Nagalingam (2135106)&gt <?php echo $year; ?>. </p>
             </footer>
         </body></html>
     <?php
+}
+
+
+function taxCalculator($price, $quantity) {
+    
+    $subTotal = $price * $quantity;
+    
+    # local tax = 16.1%
+    $taxes = $subTotal * 0.161;
+    
+    $grandtotal = $subTotal + $taxes;
+    
+    return number_format((float)$grandtotal, 2, '.', ''); 
 }

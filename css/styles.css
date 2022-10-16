@@ -15,15 +15,29 @@ body {
     width: 732px;
 }
 
-.formContainer {
-    width: 200px;
-    clear: both;
+
+
+.redText {
+    color: red;
 }
 
-.formContainer input {
-    width: 100%;
-    clear: both;
+.greenText {
+    color: green;
+    font-weight: bold;
+    font-size: 25px;
 }
+
+.formContainer label {
+    width: 120px;
+    display: inline-block;
+    text-align: right;
+}
+
+.submitbutton {
+    margin-left: 185px;
+}
+
+
 
 
 
