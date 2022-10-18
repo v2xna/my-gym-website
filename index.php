@@ -25,11 +25,11 @@ shuffle($pictures);
 
 
 <p>
-    <h1>Gym Is Life</h1>
+    <h1>Gym Expert</h1>
     
-    <strong>Gym Is Life</strong> is a company where it encourages its customers to live a healthy lifestyle. 
+    <strong>Gym Expert</strong> is a company where it encourages its customers to live a healthy lifestyle. 
     The company sells different type of products such as gym equipments, protein shakes and all gym related accessories.
-    We want our clients to exercises everyday so they can live for a long time.
+    We want our clients to exercises everyday so they can live for a very long time.
 </p>
 
 <section>

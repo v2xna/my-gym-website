@@ -1,0 +1,3 @@
+An error occured on the line 61 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/10/18 19:26:35 
+An error occured on the line 61 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/10/18 19:30:04 
+An error occured on the line 61 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/10/18 19:30:38 

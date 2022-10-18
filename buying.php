@@ -3,6 +3,9 @@
 define("FOLDER_FUNCTIONS", "commonFunctions/");
 define("FILE_FUNCTIONS", FOLDER_FUNCTIONS . "PHPfunctions.php");
 
+define("FOLDER_SALES", "sales/");
+define("FILE_SALES", FOLDER_SALES . "orders.txt");
+
 require_once FILE_FUNCTIONS;
 
 // declare variables
@@ -25,6 +28,8 @@ $validateErrorQuantity = "";
 $subTotal = "";
 $taxes = "";
 $grandTotal = "";
+
+$order = array();
 
 $errorsOccured = false;
 $orderConfirmation = "";
@@ -151,9 +156,25 @@ if (isset($_POST["buy"])) {
     # if no errors occured
     if(!($errorsOccured)) {
         
-        $grandTotal = taxCalculator($price, $quantity) . "$";
+        # Calculations
+        $subTotal = $price * $quantity;
+        $subTotal = number_format($subTotal, 2);
         
-        $orderConfirmation = "Your order for '" . $productCode . "' is confirmed!";
+        $taxes = $subTotal * 0.161;
+        $taxes = number_format($taxes, 2);
+        
+        $grandTotal = taxCalculator($price, $quantity);
+        
+        # Storing everything in an array
+        $order = array($productCode, $cFirstName, $cLastName, $cCity, $comments, $price, $quantity, $subTotal, $taxes, $grandTotal);
+        
+        # File write
+        $jsonString = json_encode($order);
+        file_put_contents(FILE_SALES, $jsonString . "\r\n", FILE_APPEND);
+        
+        
+        # Confirmation message
+        $orderConfirmation = "Your order for '" . $productCode . "' has been placed!";
         
         # empty the fields
         $productCode = "";
@@ -222,9 +243,16 @@ pageTop("Buying Page");
 
 <?php
 
-echo $grandTotal;
+# generate a list
+echo "<table>";
 
 
+
+for ($index = 0; $index < sizeof($order); $index++) {
+    echo "<li>" . $order[$index] . "</li>";
+}
+
+echo "</table>";
 
 
 pageBottom();

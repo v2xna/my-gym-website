@@ -37,6 +37,14 @@ body {
     margin-left: 185px;
 }
 
+table, th, td {
+    border: 1px solid black;
+}
+
+.tableModify {
+    width: 100%;
+}
+
 
 
 
