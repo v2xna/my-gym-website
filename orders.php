@@ -9,23 +9,8 @@ define("FILE_SALES", FOLDER_SALES . "orders.txt");
 
 require_once FILE_FUNCTIONS;
 
+
 pageTop("Orders Page");
-
-#<table>
-//$myOrders = fopen(FILE_SALES, "r") or die("Unable to open the file");
-//
-//while(!feof($myOrders))
-//{
-//
-//    $fileLine = fgets($myOrders);
-//    json_decode($fileLine);
-//    
-//    echo "<br>" . $fileLine;
-//}
-//
-//fclose($myOrders);
-
-#<table>
 
 echo "<h2>Orders</h2>";
 echo "<table>";

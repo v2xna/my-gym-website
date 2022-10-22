@@ -10,6 +10,7 @@ body {
     width: 200px;
 }
 
+
 .productImages {
     height: 549px;
     width: 732px;
@@ -45,7 +46,25 @@ table, th, td {
     width: 100%;
 }
 
+.grayBackground {
+    background-color: gray;
+}
 
 
+.whiteBackground {
+    background-color: white;
+}
 
 
+.gymlogoLessOpacity {
+    height: 200px;
+    width: 200px;
+    opacity: 0.3;
+}
+
+
+.productImagesLessOpacity {
+    height: 549px;
+    width: 732px;
+    opacity: 0.3;
+}

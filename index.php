@@ -34,7 +34,16 @@ shuffle($pictures);
 
 <section>
     <h2>Advertising</h2>
-    <a href="https://www.google.com/"><img class="productImages" src="<?php echo $pictures[0]; ?>" alt="Random products"/></a>
+    <a href="https://www.google.com/"><img class="<?php
+    
+                                                     if (isset($_GET["action"]) && strtoupper(htmlspecialchars($_GET["action"])) == strtoupper("print")) {
+                                                         echo "productImagesLessOpacity";
+                                                     }
+                                                     else {
+                                                         echo "productImages";
+                                                     }
+                                                        
+                                                  ?>" src="<?php echo $pictures[0]; ?>" alt="Random products"/></a>
 </section>
 
 <?php

@@ -243,16 +243,6 @@ pageTop("Buying Page");
 
 <?php
 
-# generate a list
-echo "<table>";
-
-
-
-for ($index = 0; $index < sizeof($order); $index++) {
-    echo "<li>" . $order[$index] . "</li>";
-}
-
-echo "</table>";
 
 
 pageBottom();

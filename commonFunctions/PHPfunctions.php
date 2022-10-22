@@ -68,8 +68,25 @@ function pageTop($title) {
             <link rel="stylesheet" type="text/css" href="<?php echo FILE_CSS; ?>" />
             <title><?php echo $title ?></title>
         </head>
-        <body>
-            <img class="gymlogo" src="<?php echo FILE_GYMLOGO; ?>" alt="Gym logo"/>
+        <body class="<?php
+                        # Action
+                        if (isset($_GET["action"]) && strtoupper(htmlspecialchars($_GET["action"])) == strtoupper("print")) {
+                            echo "whiteBackground";
+                        }
+                        else {
+                            echo "grayBackground";
+                        }
+        
+                     ?>">
+            <img class="<?php
+                           if (isset($_GET["action"]) && strtoupper(htmlspecialchars($_GET["action"])) == strtoupper("print")) {
+                               echo "gymlogoLessOpacity";
+                           }
+                           else {
+                               echo "gymlogo";
+                           }
+                           
+                        ?>" src="<?php echo FILE_GYMLOGO; ?>" alt="Gym logo"/>
             <nav>
                 <a href="index.php">Home</a> |
                 <a href="buying.php">Buying</a> |
