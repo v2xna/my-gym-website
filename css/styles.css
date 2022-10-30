@@ -1,3 +1,13 @@
+/*
+#Revision history:
+#
+#DEVELOPER              DATE            COMMENTS
+Vithursan Nagalingam    2022-10-12      Made css for the basic look of the page, centralized, fonts, layout  
+Vithursan Nagalingam    2022-10-14      Made css for the logo and the product pictures
+Vithursan Nagalingam    2022-10-15      Made css for the buying page, for the form and text boxes
+Vithursan Nagalingam    2022-10-21      Made css for the order page, styles for the tables
+*/
+
 body { 
     font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
     margin-left: auto;
@@ -14,6 +24,12 @@ body {
 .productImages {
     height: 549px;
     width: 732px;
+}
+
+.productImg2xSize {
+    border: 6px solid green;
+    height: 100%;
+    width: 100%;
 }
 
 

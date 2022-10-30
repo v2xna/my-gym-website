@@ -1,4 +1,12 @@
 <?php
+#Revision history:
+#
+#DEVELOPER               DATE           COMMENTS
+#Vithursan Nagalingam    2022-10-12     Made basic html for the index page 
+#Vithursan Nagalingam    2022-10-14     Brief description of the company and added the logo of the company and the product pictures
+#Vithursan Nagalingam    2022-10-15     Made an array to randomizes the pictures 
+#Vithursan Nagalingam    2022-10-21     Made one of the pictures be twice the size and have a green border 
+
 
 # Constants
 define("FOLDER_FUNCTIONS", "commonFunctions/");
@@ -11,6 +19,7 @@ define("FILE_GYMSET", FOLDER_PICTURES . "gymset.jpg");
 define("FILE_PROTEINSHAKE", FOLDER_PICTURES . "proteinshake.jpg");
 define("FILE_TANKTOP", FOLDER_PICTURES . "tanktop.jpg");
 
+
 require_once FILE_FUNCTIONS;
 
 
@@ -20,6 +29,8 @@ $pictures = array(FILE_BLENDER, FILE_GYMMAT, FILE_GYMSET, FILE_PROTEINSHAKE, FIL
 
 # Randomizes the pictures
 shuffle($pictures);
+
+$picture2x = $pictures[0] == FILE_GYMSET ? 'productImg2xSize':'productImages';
 
 ?>
 
@@ -40,7 +51,7 @@ shuffle($pictures);
                                                          echo "productImagesLessOpacity";
                                                      }
                                                      else {
-                                                         echo "productImages";
+                                                         echo $picture2x;
                                                      }
                                                         
                                                   ?>" src="<?php echo $pictures[0]; ?>" alt="Random products"/></a>

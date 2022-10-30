@@ -1,8 +1,17 @@
 <?php
+#Revision history:
+#
+#DEVELOPER              DATE            COMMENTS
+#Vithursan Nagalingam    2022-10-12     Created common Functions file, css file, pictures folder and declared some constants
+#Vithursan Nagalingam    2022-10-14     Added the footer with current date of the server and made a function to calculate taxes
+#Vithursan Nagalingam    2022-10-15     Made the actions for print to save ink when printing
+#Vithursan Nagalingam    2022-10-21     Added the error handlers and headers
+
+
 # Error handlers
-#error_reporting(E_ALL);
-#set_error_handler("manageError");
-#set_exception_handler("manageException");
+error_reporting(E_ALL);
+set_error_handler("manageError");
+set_exception_handler("manageException");
 
 # send headers
 header("Content-type: text/html; charset=utf-8");
@@ -21,7 +30,8 @@ define("FILE_GYMLOGO", FOLDER_LOGO . "gymlogo.jpg");
 define("FOLDER_ERRORS", "errors/");
 define("FILE_ERRORS", FOLDER_ERRORS . "errorLog.txt");
 
-define("DEBUGGING", true);
+# If debugging keep it true
+define("DEBUGGING", false);
 
 function manageError($errorNumber, $errorString, $errorFile, $errorLineNumber)
 {

@@ -1,10 +1,20 @@
 <?php
+#Revision history:
+#
+#DEVELOPER               DATE           COMMENTS
+#Vithursan Nagalingam    2022-10-12     Started first by creating the basic look of the form
+#Vithursan Nagalingam    2022-10-14     Added validations to the form
+#Vithursan Nagalingam    2022-10-15     Created a function for tax calculator
+#Vithursan Nagalingam    2022-10-21     Made an array to use json encode to save all the data into a file (write)
+
+
 # Constants
 define("FOLDER_FUNCTIONS", "commonFunctions/");
 define("FILE_FUNCTIONS", FOLDER_FUNCTIONS . "PHPfunctions.php");
 
 define("FOLDER_SALES", "sales/");
 define("FILE_SALES", FOLDER_SALES . "orders.txt");
+define("File_PHPCheatSheet", FOLDER_SALES . "PHP_Cheat_Sheet.docx");
 
 require_once FILE_FUNCTIONS;
 
@@ -241,6 +251,7 @@ pageTop("Buying Page");
     <p class="greenText"><?php echo $orderConfirmation; ?></p>
 </div>
 
+<p><a href="<?php echo File_PHPCheatSheet; ?>" download>Download my PHP cheat sheet</a></p>
 <?php
 
 
