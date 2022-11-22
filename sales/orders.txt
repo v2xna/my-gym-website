@@ -3,3 +3,4 @@
 ["prd-GymSet","Jeff","Don","Montreal","With installation","1399.99","1","1399.99","0.16","1625.39"]
 ["prd-GymMat","Koko","Damien","Montreal","hi","20","3","60.00","9.66","69.66"]
 ["PRD-TankTop","Fran\u00e7ois","Pan","Montr\u00e9al","merci","15","6","90.00","14.49","104.49"]
+["pRd-shorts","Sam","Dev","Laval","","20","5","100.00","16.10","116.10"]

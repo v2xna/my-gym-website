@@ -64,3 +64,16 @@ An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: 
 An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/10/30 00:47:13 
 An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/10/30 00:47:39 
 An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/10/30 00:47:53 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/10/30 01:11:06 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/10/30 01:11:08 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/10/31 20:41:26 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/10/31 20:42:01 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/10/31 20:42:04 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/10/31 20:44:05 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/10/31 20:44:22 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/11/11 17:31:58 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/11/11 17:32:01 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/11/11 17:33:53 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/11/19 11:25:01 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/11/20 15:22:13 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/11/20 15:39:33 

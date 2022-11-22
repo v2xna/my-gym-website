@@ -79,5 +79,6 @@ if(file_exists(FILE_SALES))
 
 <?php
 
-# Having issues with my pageBottom() function, doesn't display my footer
+# Having issues with my pageBottom() function, doesn't display my footer on order page
 pageBottom();
+

@@ -14,7 +14,6 @@ define("FILE_FUNCTIONS", FOLDER_FUNCTIONS . "PHPfunctions.php");
 
 define("FOLDER_SALES", "sales/");
 define("FILE_SALES", FOLDER_SALES . "orders.txt");
-define("File_PHPCheatSheet", FOLDER_SALES . "PHP_Cheat_Sheet.docx");
 
 require_once FILE_FUNCTIONS;
 
@@ -251,7 +250,6 @@ pageTop("Buying Page");
     <p class="greenText"><?php echo $orderConfirmation; ?></p>
 </div>
 
-<p><a href="<?php echo File_PHPCheatSheet; ?>" download>Download my PHP cheat sheet</a></p>
 <?php
 
 

@@ -6,6 +6,8 @@
 #Vithursan Nagalingam    2022-10-14     Added the footer with current date of the server and made a function to calculate taxes
 #Vithursan Nagalingam    2022-10-15     Made the actions for print to save ink when printing
 #Vithursan Nagalingam    2022-10-21     Added the error handlers and headers
+#Vithursan Nagalingam    2022-11-22     Created HTTPS with the certificate and key
+
 
 
 # Error handlers
@@ -32,6 +34,13 @@ define("FILE_ERRORS", FOLDER_ERRORS . "errorLog.txt");
 
 # If debugging keep it true
 define("DEBUGGING", false);
+
+// HTTPS
+if( !isset($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] != 'on')
+{
+    header('Location: https://' . str_replace("8088", "4433", $_SERVER["HTTP_HOST"]) . $_SERVER["REQUEST_URI"]);
+    exit();
+}
 
 function manageError($errorNumber, $errorString, $errorFile, $errorLineNumber)
 {
