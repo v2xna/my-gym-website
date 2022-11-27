@@ -5,6 +5,7 @@
 #Vithursan Nagalingam   2022-11-22      Created the class for customer
 #Vithursan Nagalingam   2022-11-22      Created the constants and variables for the customer class
 #Vithursan Nagalingam   2022-11-23      Created the constructor and getters/setters
+#Vithursan Nagalingam   2022-11-26      Created the methods for load/save/delete a customer 
 
 
 // Constants
@@ -54,7 +55,7 @@ class customer
         return $this->firstname;
     }
     
-    public function setFirstname()
+    public function setFirstname($newFirstname)
     {
         if($newFirstname == "")
         {
@@ -79,7 +80,7 @@ class customer
         return $this->lastname;
     }
     
-    public function setLastname()
+    public function setLastname($newLastname)
     {
         if($newLastname == "")
         {
@@ -104,7 +105,7 @@ class customer
         return $this->address;
     }
     
-    public function setAddress()
+    public function setAddress($newAddress)
     {
         if($newAddress == "")
         {
@@ -129,7 +130,7 @@ class customer
         return $this->city;
     }
     
-    public function setCity()
+    public function setCity($newCity)
     {
         if($newCity == "")
         {
@@ -154,7 +155,7 @@ class customer
         return $this->province;
     }
     
-    public function setProvince()
+    public function setProvince($newProvince)
     {
         if($newProvince == "")
         {
@@ -179,7 +180,7 @@ class customer
         return $this->postalcode;
     }
     
-    public function setPostalcode()
+    public function setPostalcode($newPostalcode)
     {
         if($newPostalcode == "")
         {
@@ -204,7 +205,7 @@ class customer
         return $this->username;
     }
     
-    public function setUsername()
+    public function setUsername($newUsername)
     {
         if($newUsername == "")
         {
@@ -229,7 +230,7 @@ class customer
         return $this->password;
     }
     
-    public function setPassword()
+    public function setPassword($newPassword)
     {
         if($newPassword == "")
         {
@@ -249,6 +250,98 @@ class customer
     }
     
     // Methods
+    
+    # Load a customer
+    function load($customer_id)
+    {
+        global $connection;
+        
+        $SQLQuery = 'CALL customers_select_one_row(:customer_id)';
+        
+        $rows = $connection->prepare($SQLQuery);
+        
+        $rows->bindParam(":customer_id", $customer_id);
+
+        if ($rows->execute()) 
+        {
+            if($row = $rows->fetch(PDO::FETCH_ASSOC))
+            {
+                $this->customer_id = $row["customer_id"];
+                $this->firstname = $row["firstname"];
+                $this->lastname = $row["lastname"];
+                $this->address = $row["address"];
+                $this->city = $row["city"];
+                $this->province = $row["province"];
+                $this->postalcode = $row["postalcode"];
+                
+                return true;
+            }
+        }
+    }
+    
+    # INSERT AND UPDATE a customer
+    function save()
+    {
+        global $connection;
+        
+        if($this->customer_id == "")
+        {
+            $SQLQuery = "CALL customers_insert(:firstname, :lastname, :address, :city, :province, :postalcode, :username, :user_password)";
+
+            $rows = $connection->prepare($SQLQuery);
+
+            $rows->bindParam(":firstname", $this->firstname, PDO::PARAM_STR);
+            $rows->bindParam(":lastname", $this->lastname);
+            $rows->bindParam(":address", $this->address);
+            $rows->bindParam(":city", $this->city);
+            $rows->bindParam(":province", $this->province);
+            $rows->bindParam(":postalcode", $this->postalcode);
+            $rows->bindParam(":username", $this->username);
+            $rows->bindParam(":user_password", $this->password);
+
+            if ($rows->execute()) {
+                echo $rows->rowCount() . " Customer was added!";
+            }
+        }
+        else
+        {
+            $SQLQuery = "CALL customers_update(:customer_id, :firstname, :lastname, :address, :city, :province, :postalcode, :username, :user_password)";
+
+            $rows = $connection->prepare($SQLQuery);
+
+            $rows->bindParam(":customer_id", $this->customer_id, PDO::PARAM_STR);
+            $rows->bindParam(":firstname", $this->firstname);
+            $rows->bindParam(":lastname", $this->lastname);
+            $rows->bindParam(":address", $this->address);
+            $rows->bindParam(":city", $this->city);
+            $rows->bindParam(":province", $this->province);
+            $rows->bindParam(":postalcode", $this->postalcode);
+            $rows->bindParam(":username", $this->username);
+            $rows->bindParam(":user_password", $this->password);
+
+            if ($rows->execute()) {
+                return $rows->rowCount() . " Customer was updated!";
+            }
+        }   
+    }
+    
+    # Delete a customer
+    function delete()
+    {
+        global $connection;
+        
+        $SQLQuery = "CALL customers_delete(:customer_id)";
+
+        $rows = $connection->prepare($SQLQuery);
+
+        $rows->bindParam(":customer_id", $this->customer_id, PDO::PARAM_STR);
+
+        if ($rows->execute()) {
+            
+            echo $rows->rowCount() . " player was deleted.";
+        }
+    }
+    
 }
 
 
