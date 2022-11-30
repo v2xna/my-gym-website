@@ -13,7 +13,7 @@ require_once OBJECT_CONNECTION;
 require_once OBJECT_CUSTOMER;
 require_once OBJECT_COLLECTION;
 
-class players extends collection
+class customers extends collection
 {
     function __construct()
     {
