@@ -19,3 +19,4 @@ $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 // protect against SQL injections
 $connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
+

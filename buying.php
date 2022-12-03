@@ -196,6 +196,9 @@ if (isset($_POST["buy"])) {
     }
 }
 
+
+//loginAndLogout();
+
 pageTop("Buying Page");
 ?>
 <h2>Buying Form</h2>

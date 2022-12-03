@@ -77,3 +77,23 @@ An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: 
 An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/11/19 11:25:01 
 An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/11/20 15:22:13 
 An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/11/20 15:39:33 
+An error occured on the line 209 of the file C:\xampp\htdocs\2135106\commonFunctions\PHPfunctions.php: Undefined variable $loggedUser(2) at 2022/11/30 20:52:00 
+An error occured on the line 209 of the file C:\xampp\htdocs\2135106\commonFunctions\PHPfunctions.php: Undefined variable $loggedUser(2) at 2022/11/30 20:52:19 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/11/30 20:55:34 
+An error occured on the line 214 of the file C:\xampp\htdocs\2135106\commonFunctions\PHPfunctions.php: Undefined variable $loggedUser(2) at 2022/11/30 21:32:44 
+An exception occured on the line 197 of the file C:\xampp\htdocs\2135106\commonFunctions\PHPfunctions.php: Undefined constant "OBJECT_CONNECTION"(0) on 2022/11/30 22:19:40 
+An error occured on the line 275 of the file C:\xampp\htdocs\2135106\commonFunctions\PHPfunctions.php: Undefined variable $username(2) at 2022/12/01 19:27:42 
+An exception occured on the line 197 of the file C:\xampp\htdocs\2135106\commonFunctions\PHPfunctions.php: Undefined constant "OBJECT_CONNECTION"(0) on 2022/12/01 20:14:49 
+An error occured on the line 276 of the file C:\xampp\htdocs\2135106\commonFunctions\PHPfunctions.php: Undefined variable $username(2) at 2022/12/01 20:15:42 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/02 12:36:47 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/02 13:12:23 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/02 13:35:55 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/02 13:44:43 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/02 13:44:52 
+An error occured on the line 204 of the file C:\xampp\htdocs\2135106\commonFunctions\PHPfunctions.php: session_start(): Ignoring session_start() because a session is already active(8) at 2022/12/02 14:51:34 
+An error occured on the line 184 of the file C:\xampp\htdocs\2135106\commonFunctions\PHPfunctions.php: Constant serverName already defined(2) at 2022/12/02 16:15:25 
+An error occured on the line 197 of the file C:\xampp\htdocs\2135106\commonFunctions\PHPfunctions.php: Undefined variable $connection(2) at 2022/12/02 16:22:34 
+An error occured on the line 197 of the file C:\xampp\htdocs\2135106\commonFunctions\PHPfunctions.php: Undefined variable $connection(2) at 2022/12/02 16:22:42 
+An error occured on the line 197 of the file C:\xampp\htdocs\2135106\commonFunctions\PHPfunctions.php: Undefined variable $connection(2) at 2022/12/02 16:22:53 
+An error occured on the line 22 of the file C:\xampp\htdocs\2135106\register.php: Undefined variable $productCode(2) at 2022/12/02 17:59:33 
+An exception occured on the line 22 of the file C:\xampp\htdocs\2135106\register.php: password_hash() expects at least 2 arguments, 1 given(0) on 2022/12/02 20:23:50 

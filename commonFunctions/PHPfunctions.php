@@ -8,7 +8,10 @@
 #Vithursan Nagalingam    2022-10-21     Added the error handlers and headers
 #Vithursan Nagalingam    2022-11-22     Created HTTPS with the certificate and key
 
+const OBJECTS_FOLDER3 = "objects/";
+const OBJECT_CONNECTION2 = OBJECTS_FOLDER3 . "DBconnection.php";
 
+require_once OBJECT_CONNECTION2;
 
 # Error handlers
 error_reporting(E_ALL);
@@ -33,7 +36,7 @@ define("FOLDER_ERRORS", "errors/");
 define("FILE_ERRORS", FOLDER_ERRORS . "errorLog.txt");
 
 # If debugging keep it true
-define("DEBUGGING", false);
+define("DEBUGGING", true);
 
 // HTTPS
 if( !isset($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] != 'on')
@@ -42,6 +45,44 @@ if( !isset($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] != 'on')
     exit();
 }
 
+// Cookie
+session_start();
+
+$loggedUser = "";
+
+function deleteCookie() {
+    #setcookie("loggedUser", "", time() - 60 * 10, "", "", false, true);
+    session_destroy();
+    
+    header('location: index.php');
+    exit();
+}
+
+function readCookie(){
+    
+    global $loggedUser;
+    
+    if(isset($_SESSION["loggedUser"])){
+        $loggedUser = $_SESSION["loggedUser"];
+        
+        
+        #setcookie("loggedUser", $_COOKIE["loggedUser"], time() + 60 * 10, "", "", false, true);
+    }
+}
+
+function createCookie(){
+    
+    // expires after 1 year: time() + 60 * 60 * 24 * 365 / -----secure, httponly
+    #setcookie("loggedUser", $_POST["user"], time() + 60* 10, "", "", false, true);
+    $_SESSION["loggedUser"] = $_POST["user"] && $_POST["password"];
+    
+    # make sure the browser supports cookies
+    header("location: index.php");
+    exit();
+}
+
+
+// Handling errors
 function manageError($errorNumber, $errorString, $errorFile, $errorLineNumber)
 {
     $date = date('Y/m/d H:i:s');
@@ -138,4 +179,82 @@ function taxCalculator($price, $quantity) {
     $grandtotal = $subTotal + $taxes;
     
     return number_format((float)$grandtotal, 2, '.', ''); 
+}
+
+
+
+
+function loginAndLogout() {
+    
+    if (isset($_POST["login"])) {
+        createCookie();
+        $username = htmlspecialchars($_POST["user"]);
+        $password = htmlspecialchars($_POST["password"]);
+        
+        $SQLQuery = "CALL customers_login(:username, :user_password)";
+        
+        $rows = $connection->prepare($SQLQuery);
+                                                        
+        $rows->bindParam(":username", $username, PDO::PARAM_STR);
+        $rows->bindParam(":user_password", $password);
+        
+        if ($rows->execute())
+        {
+        #foreach ($runQuery as $row) {
+            while($row = $rows->fetch()) {
+                // echo "<td>..."
+                echo "Welcome " . $row["firstname"] . " " . $row["lastname"];
+            }
+        }
+        
+    } else {
+        if (isset($_POST["logout"])) {
+            deleteCookie();
+        } else {
+            readCookie();
+        }
+    }
+    
+    
+
+    global $loggedUser;
+
+    ?><!DOCTYPE html>
+
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+        </head>
+        <body>
+            Welcome
+
+            <?php
+
+            if($loggedUser != ""){
+
+                echo $loggedUser;
+
+                ?>
+                    <form action="index.php" method="POST">
+                        <input type="submit" name="logout" value="Logout"/>
+                    </form>
+
+                <?php
+            }
+            else
+            {
+                
+                ?>
+                <form action="index.php" method="POST">
+                    Username:<input type="text" name="user"/>
+                    Password:<input type="text" name="password"/>
+                    <input type="submit" name="login" value="Login"/>
+                </form>
+                <?php
+            }
+            ?>
+        </body>
+    </html>
+    <?php
 }

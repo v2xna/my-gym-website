@@ -4,6 +4,7 @@
 #DEVELOPER              DATE            COMMENTS
 #Vithursan Nagalingam   2022-11-27      Created the order class
 #Vithursan Nagalingam   2022-11-29      Created the constructor and getters/setters
+#Vithursan Nagalingam   2022-11-30      Created the methods for order class
 
 require_once OBJECT_CONNECTION;
 
@@ -134,6 +135,86 @@ class order
     
     // Methods
     
+    # Select a order
+    function load($order_id)
+    {
+        global $connection;
+        
+        $SQLQuery = 'CALL orders_select_one_row(:order_id)';
+        
+        $rows = $connection->prepare($SQLQuery);
+        
+        $rows->bindParam(":order_id", $order_id);
+
+        if ($rows->execute()) 
+        {
+            if($row = $rows->fetch(PDO::FETCH_ASSOC))
+            {
+                $this->order_id_id = $row["order_id"];
+                $this->customer_id = $row["customer_id"];
+                $this->product_id = $row["product_id"];
+                $this->quantity = $row["quantity"];
+                $this->comments = $row["comments"];
+                
+                return true;
+            }
+        }
+    }
     
+    # INSERT AND UPDATE a order
+    function save()
+    {
+        global $connection;
+        
+        if($this->order_id == "")
+        {
+            $SQLQuery = "CALL orders_insert(:customer_id, :product_id, :quantity, :comments)";
+
+            $rows = $connection->prepare($SQLQuery);
+
+            $rows->bindParam(":customer_id", $this->customer_id, PDO::PARAM_STR);
+            $rows->bindParam(":product_id", $this->product_id);
+            $rows->bindParam(":quantity", $this->quantity);
+            $rows->bindParam(":comments", $this->comments);
+
+            if ($rows->execute()) {
+                echo $rows->rowCount() . " order was added!";
+            }
+        }
+        else
+        {
+            $SQLQuery = "CALL orders_update(:order_id, :customer_id, :product_id, :quantity, :comments)";
+
+            $rows = $connection->prepare($SQLQuery);
+
+            $rows->bindParam(":order_id", $this->order_id, PDO::PARAM_STR);
+            $rows->bindParam(":customer_id", $this->customer_id);
+            $rows->bindParam(":product_id", $this->product_id);
+            $rows->bindParam(":quantity", $this->quantity);
+            $rows->bindParam(":comments", $this->comments);
+
+            if ($rows->execute()) {
+                return $rows->rowCount() . " order was updated!";
+            }
+        }   
+    }
+    
+    
+    # Delete a order
+    function delete()
+    {
+        global $connection;
+        
+        $SQLQuery = "CALL orders_delete(:order_id)";
+
+        $rows = $connection->prepare($SQLQuery);
+
+        $rows->bindParam(":order_id", $this->order_id, PDO::PARAM_STR);
+
+        if ($rows->execute()) {
+            
+            echo $rows->rowCount() . " order was deleted.";
+        }
+    }
 }
 
