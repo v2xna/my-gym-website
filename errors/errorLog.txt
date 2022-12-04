@@ -97,3 +97,17 @@ An error occured on the line 197 of the file C:\xampp\htdocs\2135106\commonFunct
 An error occured on the line 197 of the file C:\xampp\htdocs\2135106\commonFunctions\PHPfunctions.php: Undefined variable $connection(2) at 2022/12/02 16:22:53 
 An error occured on the line 22 of the file C:\xampp\htdocs\2135106\register.php: Undefined variable $productCode(2) at 2022/12/02 17:59:33 
 An exception occured on the line 22 of the file C:\xampp\htdocs\2135106\register.php: password_hash() expects at least 2 arguments, 1 given(0) on 2022/12/02 20:23:50 
+An error occured on the line 60 of the file C:\xampp\htdocs\2135106\register.php: Undefined variable $validationErrorFirstname(2) at 2022/12/03 07:34:44 
+An error occured on the line 63 of the file C:\xampp\htdocs\2135106\register.php: Undefined variable $validationErrorFirstname(2) at 2022/12/03 07:36:41 
+An error occured on the line 63 of the file C:\xampp\htdocs\2135106\register.php: Undefined variable $validationErrorFirstname(2) at 2022/12/03 07:39:00 
+An error occured on the line 69 of the file C:\xampp\htdocs\2135106\register.php: Undefined variable $firstname(2) at 2022/12/03 07:46:16 
+An error occured on the line 33 of the file C:\xampp\htdocs\2135106\buy.php: Undefined variable $firstname(2) at 2022/12/03 11:40:53 
+An error occured on the line 53 of the file C:\xampp\htdocs\2135106\buy.php: Undefined variable $lastname(2) at 2022/12/03 12:24:19 
+An error occured on the line 53 of the file C:\xampp\htdocs\2135106\buy.php: Undefined variable $lastname(2) at 2022/12/03 12:24:53 
+An error occured on the line 53 of the file C:\xampp\htdocs\2135106\buy.php: Undefined variable $comments(2) at 2022/12/03 12:28:35 
+An error occured on the line 61 of the file C:\xampp\htdocs\2135106\buy.php: Undefined variable $comments(2) at 2022/12/03 19:42:31 
+An error occured on the line 61 of the file C:\xampp\htdocs\2135106\buy.php: Undefined variable $comments(2) at 2022/12/03 20:07:50 
+An error occured on the line 61 of the file C:\xampp\htdocs\2135106\buy.php: Undefined variable $comments(2) at 2022/12/03 20:08:31 
+An error occured on the line 61 of the file C:\xampp\htdocs\2135106\buy.php: Undefined variable $comments(2) at 2022/12/03 20:09:56 
+An error occured on the line 66 of the file C:\xampp\htdocs\2135106\buy.php: Undefined variable $comments(2) at 2022/12/03 20:30:15 
+An exception occured on the line 183 of the file C:\xampp\htdocs\2135106\objects\order.php: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`database2135106`.`orders`, CONSTRAINT `fk_orders_customers` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`))(23000) on 2022/12/03 20:36:17 

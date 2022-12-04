@@ -6,6 +6,9 @@
 #Vithursan Nagalingam   2022-11-29      Created the constructor and getters/setters
 #Vithursan Nagalingam   2022-11-30      Created the methods for order class
 
+const OBJECTS_FOLDER = "objects/";
+const OBJECT_CONNECTION = OBJECTS_FOLDER . "DBconnection.php";
+
 require_once OBJECT_CONNECTION;
 
 class order

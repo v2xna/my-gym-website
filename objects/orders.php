@@ -6,7 +6,9 @@
 
 
 // Constants
+
 const OBJECT_ORDER = OBJECTS_FOLDER . "order.php";
+const OBJECT_COLLECTION = OBJECTS_FOLDER . "collection.php";
 
 require_once OBJECT_CONNECTION;
 require_once OBJECT_ORDER;
