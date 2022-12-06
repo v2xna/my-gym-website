@@ -5,6 +5,8 @@
 #Vithursan Nagalingam   2022-11-27      Created the order class
 #Vithursan Nagalingam   2022-11-29      Created the constructor and getters/setters
 #Vithursan Nagalingam   2022-11-30      Created the methods for order class
+#Vithursan Nagalingam   2022-12-04      forgot to add getter/setter for order_id
+#Vithursan Nagalingam   2022-12-05      added extra validations for quantity
 
 const OBJECTS_FOLDER = "objects/";
 const OBJECT_CONNECTION = OBJECTS_FOLDER . "DBconnection.php";
@@ -14,6 +16,7 @@ require_once OBJECT_CONNECTION;
 class order
 {
     // Constants
+    const ORDER_ID_MAX_LENGHT = 12;
     const ID_MAX_LENGHT = 36;
     const QUANTITY_MAX_AMOUNT = 99;
     const COMMENTS_MAX_LENGTH = 200;
@@ -35,6 +38,31 @@ class order
     }
     
     // Getters and Setters
+    
+    // Order Id
+    public function getOrderId()
+    {
+        return $this->order_id;
+    }
+    
+    public function setOrderId($newOrderId)
+    {
+        if($newOrderId == "")
+        {
+            return "Order id cannot be empty";
+        }
+        else
+        {
+            if(mb_strlen($newOrderId) > self::ORDER_ID_MAX_LENGHT)
+            {
+                return "Order id cannot be longer than " . self::ORDER_ID_MAX_LENGHT . " characters";
+            }
+            else
+            {
+                $this->order_id = $newOrderId;
+            }
+        }
+    }
     
     // customer_id
     public function getCustomer_id()
@@ -100,9 +128,17 @@ class order
         }
         else
         {
-            if($newQuantity > self::QUANTITY_MAX_AMOUNT)
+            if (is_numeric($newQuantity) == false) 
             {
-                return "Quantity cannot be longer than " . self::QUANTITY_MAX_AMOUNT;
+                return "Quantity must be a numeric value!";
+            }
+            elseif((float)$newQuantity != (int)$newQuantity)
+            {
+                return "Quantity cannot be a decimal number";
+            }
+            elseif($newQuantity > self::QUANTITY_MAX_AMOUNT)
+            {
+                return "Quantity needs to be between 1 and " . self::QUANTITY_MAX_AMOUNT;
             }
             else
             {

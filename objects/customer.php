@@ -5,18 +5,20 @@
 #Vithursan Nagalingam   2022-11-22      Created the class for customer
 #Vithursan Nagalingam   2022-11-22      Created the constants and variables for the customer class
 #Vithursan Nagalingam   2022-11-23      Created the constructor and getters/setters
-#Vithursan Nagalingam   2022-11-26      Created the methods for load/save/delete a customer 
+#Vithursan Nagalingam   2022-11-26      Created the methods for load/save/delete a customer
+#Vithursan Nagalingam   2022-12-04      forgot to add getter/setter for customer_id
 
 
 // Constants
-const OBJECTS_FOLDER = "objects/";
-const OBJECT_CONNECTION = OBJECTS_FOLDER . "DBconnection.php";
+//const OBJECTS_FOLDER = "objects/";
+//const OBJECT_CONNECTION = OBJECTS_FOLDER . "DBconnection.php";
 
-require_once OBJECT_CONNECTION;
+//require_once OBJECT_CONNECTION;
 
 class customer
 {
     // Constants
+    const ID_MAX_LENGTH = 36;
     const NAME_MAX_LENGTH = 20;
     const ADDRESS_MAX_LENGTH = 25;
     const POSTALCODE_MAX_LENGTH = 7;
@@ -48,6 +50,31 @@ class customer
     }
     
     // Getters and Setters
+    
+    // Customer Id
+    public function getCustomerId()
+    {
+        return $this->customer_id;
+    }
+    
+    public function setCustomerId($newCustomerId)
+    {
+        if($newCustomerId == "")
+        {
+            return "Customer id cannot be empty";
+        }
+        else
+        {
+            if(mb_strlen($newCustomerId) > self::ID_MAX_LENGTH)
+            {
+                return "Customer id cannot be longer than " . self::ID_MAX_LENGTH . " characters";
+            }
+            else
+            {
+                $this->customer_id = $newCustomerId;
+            }
+        }
+    }
     
     // FirstName
     public function getFirstname()

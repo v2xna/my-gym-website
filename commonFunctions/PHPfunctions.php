@@ -7,11 +7,14 @@
 #Vithursan Nagalingam    2022-10-15     Made the actions for print to save ink when printing
 #Vithursan Nagalingam    2022-10-21     Added the error handlers and headers
 #Vithursan Nagalingam    2022-11-22     Created HTTPS with the certificate and key
+#Vithursan Nagalingam    2022-12-05     Fixed my login function and started creating my SESSION variable
 
 const OBJECTS_FOLDER3 = "objects/";
 const OBJECT_CONNECTION2 = OBJECTS_FOLDER3 . "DBconnection.php";
+const OBJECT_CUSTOMER = OBJECTS_FOLDER3 . "customer.php";
 
 require_once OBJECT_CONNECTION2;
+require_once OBJECT_CUSTOMER;
 
 # Error handlers
 error_reporting(E_ALL);
@@ -50,11 +53,11 @@ session_start();
 
 $loggedUser = "";
 
+
 function deleteCookie() {
-    #setcookie("loggedUser", "", time() - 60 * 10, "", "", false, true);
     session_destroy();
     
-    header('location: index.php');
+    header('location: buy.php');
     exit();
 }
 
@@ -65,19 +68,15 @@ function readCookie(){
     if(isset($_SESSION["loggedUser"])){
         $loggedUser = $_SESSION["loggedUser"];
         
-        
-        #setcookie("loggedUser", $_COOKIE["loggedUser"], time() + 60 * 10, "", "", false, true);
     }
 }
 
-function createCookie(){
+function createCookie($customer_id){
     
-    // expires after 1 year: time() + 60 * 60 * 24 * 365 / -----secure, httponly
-    #setcookie("loggedUser", $_POST["user"], time() + 60* 10, "", "", false, true);
-    $_SESSION["loggedUser"] = $_POST["user"] && $_POST["password"];
+    $_SESSION["loggedUser"] = $customer_id;
     
     # make sure the browser supports cookies
-    header("location: index.php");
+    header("location: buy.php");
     exit();
 }
 
@@ -150,7 +149,8 @@ function pageTop($title) {
             <nav>
                 <a href="index.php">Home</a> |
                 <a href="buying.php">Buying</a> |
-                <a href="orders.php">Orders</a>
+                <a href="orders.php">Orders</a> |
+                <a href="buy.php">Buy</a>
             </nav>
 
     <?php
@@ -186,24 +186,37 @@ function taxCalculator($price, $quantity) {
 
 function loginAndLogout() {
     
+    global $connection;
+    $displayMessage = "";
+    
     if (isset($_POST["login"])) {
-        createCookie();
+        
+        $errorLoginMsg = "";
+        
         $username = htmlspecialchars($_POST["user"]);
         $password = htmlspecialchars($_POST["password"]);
         
-        $SQLQuery = "CALL customers_login(:username, :user_password)";
+        $SQLQuery = "CALL customers_login(:username)";
         
         $rows = $connection->prepare($SQLQuery);
                                                         
         $rows->bindParam(":username", $username, PDO::PARAM_STR);
-        $rows->bindParam(":user_password", $password);
         
         if ($rows->execute())
         {
-        #foreach ($runQuery as $row) {
+            //echo "passwordhashis" . password_hash("123", PASSWORD_DEFAULT);
+            //var_dump($username);
+            //var_dump($password);
             while($row = $rows->fetch()) {
-                // echo "<td>..."
-                echo "Welcome " . $row["firstname"] . " " . $row["lastname"];
+                
+                if(password_verify($password, $row["user_password"]))
+                {
+                    createCookie($row["customer_id"]);
+                }
+                else
+                {
+                    $displayMessage = "Invalid username or password.";
+                }
             }
         }
         
@@ -218,6 +231,7 @@ function loginAndLogout() {
     
 
     global $loggedUser;
+    
 
     ?><!DOCTYPE html>
 
@@ -227,16 +241,19 @@ function loginAndLogout() {
             <title></title>
         </head>
         <body>
-            Welcome
-
+            
             <?php
 
             if($loggedUser != ""){
+                
+                $myCustomer = new customer();
+                $myCustomer->load($_SESSION["loggedUser"]);
 
-                echo $loggedUser;
+                $displayMessage = "Welcome " . $myCustomer->getFirstname() . " " . $myCustomer->getLastname();
 
                 ?>
-                    <form action="index.php" method="POST">
+                    <form action="buy.php" method="POST">
+                        <h3><?php echo $displayMessage; ?></h3>
                         <input type="submit" name="logout" value="Logout"/>
                     </form>
 
@@ -246,10 +263,12 @@ function loginAndLogout() {
             {
                 
                 ?>
-                <form action="index.php" method="POST">
+                <form action="buy.php" method="POST">
                     Username:<input type="text" name="user"/>
-                    Password:<input type="text" name="password"/>
-                    <input type="submit" name="login" value="Login"/>
+                    <br>Password:<input type="text" name="password"/>
+                    <br><input type="submit" name="login" value="Login"/>
+                    <br><p>Need a user account? <a href="register.php">Register</a></p>
+                    <p class="redText"><?php echo $displayMessage; ?></p>
                 </form>
                 <?php
             }

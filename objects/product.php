@@ -4,6 +4,7 @@
 #DEVELOPER              DATE            COMMENTS
 #Vithursan Nagalingam   2022-11-27      Created the class for product
 #Vithursan Nagalingam   2022-11-27      Created the constructors, getters and setters and methods for product class
+#Vithursan Nagalingam   2022-12-04      forgot to add getter/setter for product_id
 
 
 require_once OBJECT_CONNECTION;
@@ -11,6 +12,7 @@ require_once OBJECT_CONNECTION;
 class product
 {
     // Constants
+    const ID_MAX_LENGTH = 36;
     const PRODUCT_CODE_MAX_LENGTH = 12;
     const PRODUCT_DESCRIPTION_MAX_LENGTH = 100;
     const PRODUCT_PRICE_MAX_AMOUNT = 10000;
@@ -30,6 +32,31 @@ class product
     }
     
     // Getters and Setters
+    
+    # Product Id
+    public function getProductId()
+    {
+        return $this->product_id;
+    }
+    
+    public function setProductId($newProductId)
+    {
+        if($newProductId == "")
+        {
+            return "Product id cannot be empty";
+        }
+        else
+        {
+            if(mb_strlen($newProductId) > self::ID_MAX_LENGTH)
+            {
+                return "Product id cannot be longer than " . self::ID_MAX_LENGTH . " characters";
+            }
+            else
+            {
+                $this->product_id = $newProductId;
+            }
+        }
+    }
     
     # Product Code
     public function getProductcode()

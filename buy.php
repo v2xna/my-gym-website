@@ -3,7 +3,8 @@
 #Revision history:
 #
 #DEVELOPER               DATE           COMMENTS
-#Vithursan Nagalingam    2022-12-02     Created buy page
+#Vithursan Nagalingam    2022-12-03     Created buy page
+#Vithursan Nagalingam    2022-12-05     Fixed bugged where I had to use SESSION variable to get the customer_id 
 
 # Constants
 define("FOLDER_FUNCTIONS", "commonFunctions/");
@@ -18,6 +19,8 @@ require_once OBJECT_ORDER2;
 require_once OBJECT_ORDERS2;
 require_once FILE_FUNCTIONS;
 
+global $loggedUser;
+$customer_id = "";
 $product_id = "";
 $comments = "";
 $quantity = "";
@@ -26,24 +29,43 @@ $validationErrorProductid = "";
 $validationErrorQuantity = "";
 $validationErrorComments = "";
 
-
+$errorsOccured = false;
     
 if (isset($_POST["buy_product"]))
 {
+    $customer_id = htmlspecialchars($_SESSION["loggedUser"]);
     $product_id = htmlspecialchars($_POST["product_id"]);
     $comments = htmlspecialchars($_POST["comments"]);
     $quantity = htmlspecialchars($_POST["quantity"]);
     
     $myOrder = new order();
+    $myOrder->setCustomer_id($customer_id);
     $validationErrorProductid = $myOrder->setProduct_id($product_id);
     $validationErrorQuantity = $myOrder->setQuantity($quantity);
     $validationErrorComments = $myOrder->setComments($comments);
     
-    $myOrder->save();
+    if(!($validationErrorProductid == "" && $validationErrorQuantity == "" && $validationErrorComments == ""))
+    {
+        $errorsOccured = true;
+    }
+    
+    if(!($errorsOccured))
+    {
+        # save order into database
+        $myOrder->save();
+        
+        # Empty the fields after ordering
+        $comments = "";
+        $quantity = "";
+        
+    }
+    
+    
 }
 
 
 pageTop("Buy Page");
+loginAndLogout();
 ?>
 
 <h2>Buy</h2>

@@ -53,7 +53,7 @@ if (isset($_POST["add_customer"]))
     $user_password = htmlspecialchars(password_hash($_POST["user_password"], PASSWORD_DEFAULT));
     //$screenShotFile = null;
     
-    // validation for customer
+    // creating my object customer
     $myCustomer = new customer();
     $validationErrorFirstname = $myCustomer->setFirstname($firstname);
     $validationErrorLastname = $myCustomer->setLastname($lastname);

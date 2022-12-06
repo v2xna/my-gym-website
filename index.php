@@ -26,8 +26,6 @@ require_once FILE_FUNCTIONS;
 
 pageTop("Home Page");
 
-loginAndLogout();
-
 $pictures = array(FILE_BLENDER, FILE_GYMMAT, FILE_GYMSET, FILE_PROTEINSHAKE, FILE_TANKTOP);
 
 # Randomizes the pictures
