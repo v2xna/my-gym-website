@@ -7,7 +7,7 @@
 #Vithursan Nagalingam   2022-12-04      forgot to add getter/setter for product_id
 
 
-require_once OBJECT_CONNECTION;
+//require_once OBJECT_CONNECTION;
 
 class product
 {

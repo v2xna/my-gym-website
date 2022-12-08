@@ -127,3 +127,22 @@ An exception occured on the line 210 of the file C:\xampp\htdocs\2135106\objects
 An error occured on the line 256 of the file C:\xampp\htdocs\2135106\commonFunctions\PHPfunctions.php: Undefined variable $errorMsg(2) at 2022/12/05 19:10:27 
 An error occured on the line 271 of the file C:\xampp\htdocs\2135106\commonFunctions\PHPfunctions.php: Undefined variable $errorLoginMsg(2) at 2022/12/05 19:10:49 
 An error occured on the line 36 of the file C:\xampp\htdocs\2135106\buy.php: Undefined array key "loggedUser"(2) at 2022/12/05 19:11:31 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/07 08:23:33 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/07 08:46:52 
+An error occured on the line 69 of the file C:\xampp\htdocs\2135106\orders2.php: foreach() argument must be of type array|object, string given(2) at 2022/12/07 11:43:17 
+An error occured on the line 75 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "created_datetime"(2) at 2022/12/07 12:18:17 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/07 12:24:55 
+An exception occured on the line 68 of the file C:\xampp\htdocs\2135106\orders2.php: SQLSTATE[42S22]: Column not found: 1054 Unknown column '076c5013' in 'where clause'(42S22) on 2022/12/07 13:21:32 
+An exception occured on the line 68 of the file C:\xampp\htdocs\2135106\orders2.php: SQLSTATE[42S22]: Column not found: 1054 Unknown column '076c5013' in 'where clause'(42S22) on 2022/12/07 13:23:08 
+An error occured on the line 15 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/07 13:36:12 
+An error occured on the line 15 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/07 13:36:36 
+An error occured on the line 17 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/07 13:37:08 
+An error occured on the line 17 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/07 13:37:28 
+An error occured on the line 17 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/07 14:08:55 
+An error occured on the line 17 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/07 14:11:34 
+An error occured on the line 17 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/07 14:19:26 
+An error occured on the line 21 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/07 14:21:59 
+An error occured on the line 17 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/07 14:22:52 
+An error occured on the line 17 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/07 14:24:27 
+An error occured on the line 17 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/07 18:59:25 
+An error occured on the line 17 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/07 18:59:37 

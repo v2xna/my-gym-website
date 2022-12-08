@@ -7,11 +7,14 @@
 #Vithursan Nagalingam   2022-11-30      Created the methods for order class
 #Vithursan Nagalingam   2022-12-04      forgot to add getter/setter for order_id
 #Vithursan Nagalingam   2022-12-05      added extra validations for quantity
+#Vithursan Nagalingam   2022-12-07      comments can now be optional instead of required field
+#Vithursan Nagalingam   2022-12-07      Added subtotal/taxes/total fields
+#Vithursan Nagalingam   2022-12-07      Modified the methods for subtotal/taxes/total
 
-const OBJECTS_FOLDER = "objects/";
-const OBJECT_CONNECTION = OBJECTS_FOLDER . "DBconnection.php";
+//const OBJECTS_FOLDER = "objects/";
+//const OBJECT_CONNECTION = OBJECTS_FOLDER . "DBconnection.php";
 
-require_once OBJECT_CONNECTION;
+//require_once OBJECT_CONNECTION;
 
 class order
 {
@@ -27,6 +30,9 @@ class order
     private $product_id = "";
     private $quantity = "";
     private $comments = "";
+    private $subtotal = "";
+    private $taxes_amount = "";
+    private $total = "";
     
     // Constructor
     public function __construct($newCustomer_id = "", $newProduct_id = "", $newQuantity = "", $newComments = "")
@@ -155,22 +161,49 @@ class order
     
     public function setComments($newComments)
     {
-        if($newComments == "")
+        
+        
+        if(mb_strlen($newComments) > self::COMMENTS_MAX_LENGTH)
         {
-            return "Comment cannot be empty";
+            return "Comment cannot be longer than " . self::COMMENTS_MAX_LENGTH . " characters";
         }
         else
         {
-            if(mb_strlen($newComments) > self::COMMENTS_MAX_LENGTH)
-            {
-                return "Comment cannot be longer than " . self::COMMENTS_MAX_LENGTH . " characters";
-            }
-            else
-            {
-                $this->comments = $newComments;
-            }
+            $this->comments = $newComments;
         }
+        
     }
+    
+    // Subtotal
+    public function getSubtotal()
+    {
+        return $this->subtotal;
+    }
+    public function setSubtotal($newSubtotal)
+    {
+        return $this->subtotal = $newSubtotal;
+    }
+    
+    // Taxes
+    public function getTaxesAmount()
+    {
+        return $this->taxes_amount;
+    }
+    public function setTaxesAmount($newTaxesAmount)
+    {
+        return $this->taxes_amount = $newTaxesAmount;
+    }
+    
+    // Total
+    public function getTotal()
+    {
+        return $this->total;
+    }
+    public function setTotal($newTotal)
+    {
+        return $this->total = $newTotal;
+    }
+    
     
     // Methods
     
@@ -194,6 +227,9 @@ class order
                 $this->product_id = $row["product_id"];
                 $this->quantity = $row["quantity"];
                 $this->comments = $row["comments"];
+                $this->subtotal = $row["subtotal"];
+                $this->taxes_amount = $row["taxes_amount"];
+                $this->total = $row["total"];
                 
                 return true;
             }
@@ -207,7 +243,7 @@ class order
         
         if($this->order_id == "")
         {
-            $SQLQuery = "CALL orders_insert(:customer_id, :product_id, :quantity, :comments)";
+            $SQLQuery = "CALL orders_insert(:customer_id, :product_id, :quantity, :comments, :subtotal, :taxes_amount, :total)";
 
             $rows = $connection->prepare($SQLQuery);
 
@@ -215,6 +251,10 @@ class order
             $rows->bindParam(":product_id", $this->product_id);
             $rows->bindParam(":quantity", $this->quantity);
             $rows->bindParam(":comments", $this->comments);
+            $rows->bindParam(":subtotal", $this->subtotal);
+            $rows->bindParam(":taxes_amount", $this->taxes_amount);
+            $rows->bindParam(":total", $this->total);
+            
 
             if ($rows->execute()) {
                 echo $rows->rowCount() . " order was added!";
@@ -222,7 +262,7 @@ class order
         }
         else
         {
-            $SQLQuery = "CALL orders_update(:order_id, :customer_id, :product_id, :quantity, :comments)";
+            $SQLQuery = "CALL orders_update(:order_id, :customer_id, :product_id, :quantity, :comments, :subtotal, :taxes_amount, :total)";
 
             $rows = $connection->prepare($SQLQuery);
 
@@ -231,6 +271,9 @@ class order
             $rows->bindParam(":product_id", $this->product_id);
             $rows->bindParam(":quantity", $this->quantity);
             $rows->bindParam(":comments", $this->comments);
+            $rows->bindParam(":subtotal", $this->subtotal);
+            $rows->bindParam(":taxes_amount", $this->taxes_amount);
+            $rows->bindParam(":total", $this->total);
 
             if ($rows->execute()) {
                 return $rows->rowCount() . " order was updated!";

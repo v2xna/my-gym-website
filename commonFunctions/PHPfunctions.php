@@ -8,10 +8,14 @@
 #Vithursan Nagalingam    2022-10-21     Added the error handlers and headers
 #Vithursan Nagalingam    2022-11-22     Created HTTPS with the certificate and key
 #Vithursan Nagalingam    2022-12-05     Fixed my login function and started creating my SESSION variable
+#Vithursan Nagalingam    2022-12-07     Added ajax => search function
 
 const OBJECTS_FOLDER3 = "objects/";
 const OBJECT_CONNECTION2 = OBJECTS_FOLDER3 . "DBconnection.php";
 const OBJECT_CUSTOMER = OBJECTS_FOLDER3 . "customer.php";
+
+const JAVASCRIPT_FOLDER = "JavaScript/";
+const JAVASCRIPT_AJAX = JAVASCRIPT_FOLDER . "ajax.js";
 
 require_once OBJECT_CONNECTION2;
 require_once OBJECT_CUSTOMER;
@@ -125,6 +129,7 @@ function pageTop($title) {
         <head>
             <meta charset="UTF-8">
             <link rel="stylesheet" type="text/css" href="<?php echo FILE_CSS; ?>" />
+            <script language="javascript" type="text/javascript" src="<?php echo JAVASCRIPT_AJAX; ?>"></script>
             <title><?php echo $title ?></title>
         </head>
         <body class="<?php
@@ -150,7 +155,8 @@ function pageTop($title) {
                 <a href="index.php">Home</a> |
                 <a href="buying.php">Buying</a> |
                 <a href="orders.php">Orders</a> |
-                <a href="buy.php">Buy</a>
+                <a href="buy.php">Buy</a> |
+                <a href="orders2.php">Customer Orders</a>
             </nav>
 
     <?php
@@ -228,52 +234,35 @@ function loginAndLogout() {
         }
     }
     
-    
-
     global $loggedUser;
     
+    if($loggedUser != ""){
 
-    ?><!DOCTYPE html>
+        $myCustomer = new customer();
+        $myCustomer->load($_SESSION["loggedUser"]);
 
-    <html>
-        <head>
-            <meta charset="UTF-8">
-            <title></title>
-        </head>
-        <body>
-            
-            <?php
+        $displayMessage = "Welcome " . $myCustomer->getFirstname() . " " . $myCustomer->getLastname();
 
-            if($loggedUser != ""){
-                
-                $myCustomer = new customer();
-                $myCustomer->load($_SESSION["loggedUser"]);
+        ?>
+            <form action="buy.php" method="POST">
+                <h3><?php echo $displayMessage; ?></h3>
+                <input type="submit" name="logout" value="Logout"/>
+            </form>
 
-                $displayMessage = "Welcome " . $myCustomer->getFirstname() . " " . $myCustomer->getLastname();
+        <?php
+    }
+    else
+    {
 
-                ?>
-                    <form action="buy.php" method="POST">
-                        <h3><?php echo $displayMessage; ?></h3>
-                        <input type="submit" name="logout" value="Logout"/>
-                    </form>
+        ?>
+        <form action="buy.php" method="POST">
+            Username:<input type="text" name="user"/>
+            <br>Password:<input type="text" name="password"/>
+            <br><input type="submit" name="login" value="Login"/>
+            <br><p>Need a user account? <a href="register.php">Register</a></p>
+            <p class="redText"><?php echo $displayMessage; ?></p>
+        </form>
+        <?php
+    }
 
-                <?php
-            }
-            else
-            {
-                
-                ?>
-                <form action="buy.php" method="POST">
-                    Username:<input type="text" name="user"/>
-                    <br>Password:<input type="text" name="password"/>
-                    <br><input type="submit" name="login" value="Login"/>
-                    <br><p>Need a user account? <a href="register.php">Register</a></p>
-                    <p class="redText"><?php echo $displayMessage; ?></p>
-                </form>
-                <?php
-            }
-            ?>
-        </body>
-    </html>
-    <?php
 }
