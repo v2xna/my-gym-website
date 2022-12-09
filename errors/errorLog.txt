@@ -146,3 +146,23 @@ An error occured on the line 17 of the file C:\xampp\htdocs\2135106\orders2.php:
 An error occured on the line 17 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/07 14:24:27 
 An error occured on the line 17 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/07 18:59:25 
 An error occured on the line 17 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/07 18:59:37 
+An error occured on the line 18 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/09 14:33:33 
+An error occured on the line 18 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/09 14:33:43 
+An error occured on the line 29 of the file C:\xampp\htdocs\2135106\account.php: Undefined variable $firstname(2) at 2022/12/09 14:38:43 
+An error occured on the line 41 of the file C:\xampp\htdocs\2135106\account.php: Undefined array key "loggedUser"(2) at 2022/12/09 14:47:22 
+An exception occured on the line 43 of the file C:\xampp\htdocs\2135106\account.php: Unsupported operand types: string + string(0) on 2022/12/09 15:08:41 
+An exception occured on the line 330 of the file C:\xampp\htdocs\2135106\objects\customer.php: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'beat' for key 'username'(23000) on 2022/12/09 15:14:51 
+An error occured on the line 18 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/09 16:12:42 
+An error occured on the line 38 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "creation_datetime"(2) at 2022/12/09 16:31:39 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/09 17:04:07 
+An error occured on the line 18 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/09 17:15:35 
+An error occured on the line 18 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/09 17:39:05 
+An error occured on the line 18 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/09 17:41:08 
+An error occured on the line 18 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/09 17:41:37 
+An error occured on the line 18 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/09 17:48:01 
+An error occured on the line 18 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/09 17:49:00 
+An error occured on the line 18 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/09 17:51:51 
+An error occured on the line 18 of the file C:\xampp\htdocs\2135106\orders2.php: Undefined array key "loggedUser"(2) at 2022/12/09 17:53:43 
+An error occured on the line 41 of the file C:\xampp\htdocs\2135106\account.php: Undefined array key "loggedUser"(2) at 2022/12/09 18:03:17 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/09 18:03:20 
+An error occured on the line 41 of the file C:\xampp\htdocs\2135106\account.php: Undefined array key "loggedUser"(2) at 2022/12/09 18:07:16 

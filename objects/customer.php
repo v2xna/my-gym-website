@@ -300,6 +300,7 @@ class customer
                 $this->city = $row["city"];
                 $this->province = $row["province"];
                 $this->postalcode = $row["postalcode"];
+                $this->username = $row["username"];
                 
                 return true;
             }

@@ -1,5 +1,4 @@
 <?php
-
 #Revision history:
 #
 #DEVELOPER               DATE           COMMENTS
@@ -7,6 +6,7 @@
 #Vithursan Nagalingam    2022-12-05     Fixed bugged where I had to use SESSION variable to get the customer_id
 #Vithursan Nagalingam    2022-12-07     Added subtotal/taxes_amount/total fields..
 #Vithursan Nagalingam    2022-12-07     Method to calculate a product
+#Vithursan Nagalingam    2022-12-09     Shows buy page only if logged in
 
 # Constants
 define("FOLDER_FUNCTIONS", "commonFunctions/");
@@ -24,6 +24,7 @@ require_once OBJECT_ORDERS;
 require_once OBJECT_PRODUCT;
 require_once FILE_FUNCTIONS;
 
+# Variables
 global $loggedUser;
 $customer_id = "";
 $product_id = "";
@@ -39,8 +40,12 @@ $validationErrorQuantity = "";
 $validationErrorComments = "";
 
 $errorsOccured = false;
-    
-if (isset($_POST["buy_product"]))
+
+pageTop("Buy Page");
+
+if(isset($_SESSION["loggedUser"]))
+{
+    if (isset($_POST["buy_product"]))
 {
     // Variables
     $customer_id = htmlspecialchars($_SESSION["loggedUser"]);
@@ -90,14 +95,13 @@ if (isset($_POST["buy_product"]))
 }
 
 
-pageTop("Buy Page");
+
 loginAndLogout();
 ?>
 
 <h2>Buy</h2>
 <span class="redText">* = required</span>
 <div class="formContainer">
-    <!-- Add new player -->
     <form method="POST" enctype="multipart/form-data">
         
         <p>
@@ -135,7 +139,12 @@ loginAndLogout();
         
     </form>
 </div>
-
 <?php
+}
+else
+{
+    loginAndLogout();
+}
+
 
 pageBottom();

@@ -156,7 +156,8 @@ function pageTop($title) {
                 <a href="buying.php">Buying</a> |
                 <a href="orders.php">Orders</a> |
                 <a href="buy.php">Buy</a> |
-                <a href="orders2.php">Customer Orders</a>
+                <a href="orders2.php">Your Orders</a> |
+                <a href="account.php">Update Account</a>
             </nav>
 
     <?php
@@ -257,7 +258,7 @@ function loginAndLogout() {
         ?>
         <form action="buy.php" method="POST">
             Username:<input type="text" name="user"/>
-            <br>Password:<input type="text" name="password"/>
+            <br>Password:<input type="password" name="password"/>
             <br><input type="submit" name="login" value="Login"/>
             <br><p>Need a user account? <a href="register.php">Register</a></p>
             <p class="redText"><?php echo $displayMessage; ?></p>

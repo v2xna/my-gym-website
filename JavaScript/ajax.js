@@ -5,10 +5,6 @@
 
 function searchPlayers()
 {
-    // get the textbox, and then the value it contains
-    //var searchedPlayerTextbox = document.getElementById("searchedPlayerName");
-    //var searchedPlayerString = searchedPlayerTextbox.value;
-    
     var searchedPlayerString = document.getElementById("searchedPlayerName").value;
     
     var xhr = new XMLHttpRequest();
