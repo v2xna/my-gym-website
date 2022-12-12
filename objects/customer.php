@@ -328,7 +328,7 @@ class customer
             $rows->bindParam(":user_password", $this->password);
 
             if ($rows->execute()) {
-                echo $rows->rowCount() . " Customer was added!";
+                echo "You have registred successfully!";
             }
         }
         else

@@ -5,6 +5,7 @@
 #Vithursan Nagalingam    2022-12-02     Created register page
 #Vithursan Nagalingam    2022-12-02     Can now register customer in the database
 #Vithursan Nagalingam    2022-12-03     added validation error
+#Vithursan Nagalingam    2022-12-11     added some css..
 
 # Constants
 define("FOLDER_FUNCTIONS", "commonFunctions/");
@@ -92,8 +93,8 @@ if (isset($_POST["add_customer"]))
 pageTop("Register Page");
 ?>
 
-<h2>Register Form</h2>
-<span class="redText">* = required</span>
+<h2 class="h2Form">Register Form</h2>
+<span class="requiredText">* = required</span>
 <div class="formContainer">
     <!-- Add new customer -->
     <form method="POST" enctype="multipart/form-data">

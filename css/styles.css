@@ -7,6 +7,7 @@ Vithursan Nagalingam    2022-10-14      Made css for the logo and the product pi
 Vithursan Nagalingam    2022-10-15      Made css for the buying page, for the form and text boxes
 Vithursan Nagalingam    2022-10-21      Made css for the order page, styles for the tables
 Vithursan Nagalingam    2022-11-23      Removed underline text of navigation menu
+Vithursan Nagalingam    2022-12-11      adding css to my loginform
 */
 
 body { 
@@ -52,7 +53,9 @@ body {
 }
 
 .submitbutton {
-    margin-left: 185px;
+    margin-left: 125px;
+    padding: 8px 15px;
+    width: 15%;
 }
 
 table, th, td {
@@ -95,4 +98,19 @@ a {
 
 div {
     margin-bottom: 20px;
+}
+
+nav {
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.requiredText {
+    color: red;
+    margin-left: 125px;
+}
+
+.h2Form {
+    text-decoration: underline;
+    margin-left: 30px;
 }

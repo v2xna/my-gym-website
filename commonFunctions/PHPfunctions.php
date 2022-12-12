@@ -8,7 +8,8 @@
 #Vithursan Nagalingam    2022-10-21     Added the error handlers and headers
 #Vithursan Nagalingam    2022-11-22     Created HTTPS with the certificate and key
 #Vithursan Nagalingam    2022-12-05     Fixed my login function and started creating my SESSION variable
-#Vithursan Nagalingam    2022-12-07     Added ajax => search function
+#Vithursan Nagalingam    2022-12-07     trying to add ajax => search function
+#Vithursan Nagalingam    2022-12-11     adding css to my login form
 
 const OBJECTS_FOLDER3 = "objects/";
 const OBJECT_CONNECTION2 = OBJECTS_FOLDER3 . "DBconnection.php";
@@ -256,6 +257,7 @@ function loginAndLogout() {
     {
 
         ?>
+        
         <form action="buy.php" method="POST">
             Username:<input type="text" name="user"/>
             <br>Password:<input type="password" name="password"/>

@@ -99,8 +99,8 @@ if(isset($_SESSION["loggedUser"]))
 loginAndLogout();
 ?>
 
-<h2>Buy</h2>
-<span class="redText">* = required</span>
+<h2 class="h2Form">Buy</h2>
+<span class="requiredText">* = required</span>
 <div class="formContainer">
     <form method="POST" enctype="multipart/form-data">
         

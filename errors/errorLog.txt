@@ -166,3 +166,11 @@ An error occured on the line 18 of the file C:\xampp\htdocs\2135106\orders2.php:
 An error occured on the line 41 of the file C:\xampp\htdocs\2135106\account.php: Undefined array key "loggedUser"(2) at 2022/12/09 18:03:17 
 An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/09 18:03:20 
 An error occured on the line 41 of the file C:\xampp\htdocs\2135106\account.php: Undefined array key "loggedUser"(2) at 2022/12/09 18:07:16 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/11 10:01:23 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/11 10:01:30 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/11 10:01:43 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/11 10:13:17 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/11 10:21:28 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/11 10:26:03 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/11 10:26:06 
+An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/11 10:38:08 

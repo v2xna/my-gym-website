@@ -87,13 +87,6 @@ if (isset($_POST["update_customer"]))
         $updateConfirmation = "Your account info has been updated!";
         
         # empty the fields
-        $firstname = "";
-        $lastname = "";
-        $address = "";
-        $city = "";
-        $province = "";
-        $postalcode = "";
-        $username = "";
         $user_password = "";
     } 
     
@@ -101,8 +94,8 @@ if (isset($_POST["update_customer"]))
 
 
 ?>
-<h2>Update Account</h2>
-<span class="redText">* = required</span>
+<h2 class="h2Form">Update Account</h2>
+<span class="requiredText">* = required</span>
 <div class="formContainer">
     <form method="POST" enctype="multipart/form-data">
         
