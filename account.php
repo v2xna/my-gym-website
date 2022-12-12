@@ -5,6 +5,7 @@
 #Vithursan Nagalingam    2022-12-09     Created account page
 #Vithursan Nagalingam    2022-12-09     Added functionality that you must login to update the account
 #Vithursan Nagalingam    2022-12-09     Added a pop up message if update was succesful
+#Vithursan Nagalingam    2022-12-09     forgot to add logout form
 
 
 # Constants
@@ -44,8 +45,9 @@ pageTop("Update Account Page");
 
 if(isset($_SESSION["loggedUser"]))
 {
+    loginAndLogout();
     $myCustomer = new customer();
-$myCustomer->load($_SESSION["loggedUser"]);
+    $myCustomer->load($_SESSION["loggedUser"]);
 
 
 if (isset($_POST["update_customer"]))

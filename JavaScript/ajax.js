@@ -2,47 +2,74 @@
 //
 //DEVELOPER               DATE           COMMENTS
 //Vithursan Nagalingam    2022-12-07     Started creating ajax function
+//Vithursan Nagalingam    2022-12-12     Added javascript error handling for debugging
 
-function searchPlayers()
+
+function searchOrders()
 {
-    var searchedPlayerString = document.getElementById("searchedPlayerName").value;
+    // get the textbox, and the value it contains
+    //var searchedOrderTextbox = document.getElementById("searchedOrderDate");
+    //var searchedOrderString = searchedOrderTextbox.value;
     
+    // extract the search value from the textbox
+    //                                                 id of textbox      .value -> for textbox
+    var searchedOrderString = document.getElementById("searchedOrderDate").value;
+    
+    //alert('I see you are searching for...' + searchedOrderString);
+    
+    // Create the object necessary for ajax
     var xhr = new XMLHttpRequest();
     
-    xhr.open('POST', 'orders2.php'); // create that page and echo "...."
+    // Specify the method and page / Establised a commucation with my search page
+    xhr.open('POST', 'searchOrders.php');
     
-    // tell its not containing binary data
+    // to tell its not a form containing binary data
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     
+    // Callback function (call the following function then do this...)
     xhr.onreadystatechange = function ()
     {
-        // console.log('I got a new ready state ' + xhr.readyState);
         if (xhr.readyState === 4 && xhr.status === 200)
         {
-            //alert(xhr.responseText); // AJAX(XML) : responseXML     AJAH HTML: responseTest
+            // Receive information
+            //alert(xhr.responseText);
+            //                                       .innerHTML -> inside the div
             document.getElementById("searchResults").innerHTML = xhr.responseText;
         }
-    };
+    }
     
-    xhr.send("searchedPlayer=" + searchedPlayerString);
+    // Submits the form (sends the result / ajax call)
+    //Pass information
+    xhr.send("searchedOrder=" + searchedOrderString);
+             // URL POST
 }
 
+
+
+// ====== This section is to help with debugging =======
 function handleError(error)
 {
-    console.log('An error occured: ' + error);
+    // Have to look in f12 debug console
+    //console.log('An error occured: ' + error);
+    
+    // Pops up the error on the screen
+    alert('An error occured: ' + error);
 }
 
 function testJavaScript()
 {
+    // equivalent of echo/var_dump = console.log
+    //console.log('will try to create a crash object');
+    
+    
     try
     {
-        var crash = new crash();
-        alert("JavaScript works from an external fine");
+        var crash = new crash(); // this generates an error/exception
+        alert("Javascript works from external file");
     }
+    
     catch(error)
     {
         handleError(error);
     }
 }
-
-

@@ -7,6 +7,7 @@
 #Vithursan Nagalingam    2022-12-07     Added subtotal/taxesAmount/total into the table
 #Vithursan Nagalingam    2022-12-07     Tried to implement search function
 #Vithursan Nagalingam    2022-12-09     displays login function when user logs out
+#Vithursan Nagalingam    2022-12-09     added ajax search functionality
 
 
 # Constants
@@ -38,27 +39,6 @@ if(isset($_SESSION["loggedUser"]))
         }
     }
 
-    if (isset($_POST["searchedPlayer"])) {
-        $creation_datetime = htmlspecialchars($_POST["creation_datetime"]);
-
-        $SQLQuery = "CALL orders_search('{$loggedUser}', :creation_datetime)";
-
-        $rows = $connection->prepare($SQLQuery);
-
-        $rows->bindParam(":creation_datetime", $order_id, PDO::PARAM_STR);
-
-        if ($rows->execute()) {
-            echo "<ol>";
-            while ($row = $rows->fetch()) {
-                echo "<li>" . $row["quantity"] . "</li>";
-            }
-            echo "</ol>";
-        }
-    }
-
-
-
-
     loginAndLogout();
 
     echo "<h2>Orders</h2>";
@@ -66,8 +46,12 @@ if(isset($_SESSION["loggedUser"]))
 
     <div>
         <label>Show orders made on this date or later:</label>
-        <input type="text" id="searchedPlayerName">
-        <button onclick="searchPlayers()">Search</button>
+        <input type="text" id="searchedOrderDate">
+        <button onclick="searchOrders();">Search</button>
+    </div>
+
+    <div id="searchResults">
+        <!-- The search results goes here -->
     </div>
 
 
