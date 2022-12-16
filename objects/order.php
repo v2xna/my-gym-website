@@ -10,6 +10,7 @@
 #Vithursan Nagalingam   2022-12-07      comments can now be optional instead of required field
 #Vithursan Nagalingam   2022-12-07      Added subtotal/taxes/total fields
 #Vithursan Nagalingam   2022-12-07      Modified the methods for subtotal/taxes/total
+#Vithursan Nagalingam   2022-12-15      forgot to add subtotal/taxes/total in the constructor
 
 //const OBJECTS_FOLDER = "objects/";
 //const OBJECT_CONNECTION = OBJECTS_FOLDER . "DBconnection.php";
@@ -35,12 +36,15 @@ class order
     private $total = "";
     
     // Constructor
-    public function __construct($newCustomer_id = "", $newProduct_id = "", $newQuantity = "", $newComments = "")
+    public function __construct($newCustomer_id = "", $newProduct_id = "", $newQuantity = "", $newComments = "", $newSubtotal = "", $newTaxesAmount = "", $newTotal = "")
     {
         $this->setCustomer_id($newCustomer_id);
         $this->setProduct_id($newProduct_id);
         $this->setQuantity($newQuantity);
         $this->setComments($newComments);
+        $this->setSubtotal($newSubtotal);
+        $this->setTaxesAmount($newTaxesAmount);
+        $this->setTotal($newTotal);
     }
     
     // Getters and Setters

@@ -90,10 +90,8 @@ if(isset($_SESSION["loggedUser"]))
         $quantity = "";
         
     }
-    
-    
+      
 }
-
 
 
 loginAndLogout();
