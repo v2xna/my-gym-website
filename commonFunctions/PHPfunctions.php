@@ -10,6 +10,7 @@
 #Vithursan Nagalingam    2022-12-05     Fixed my login function and started creating my SESSION variable
 #Vithursan Nagalingam    2022-12-07     trying to add ajax => search function
 #Vithursan Nagalingam    2022-12-11     adding css to my login form
+#Vithursan Nagalingam    2022-12-11     removed page links(<a>) of midterm pages
 
 const OBJECTS_FOLDER3 = "objects/";
 const OBJECT_CONNECTION2 = OBJECTS_FOLDER3 . "DBconnection.php";
@@ -154,8 +155,8 @@ function pageTop($title) {
                         ?>" src="<?php echo FILE_GYMLOGO; ?>" alt="Gym logo"/>
             <nav>
                 <a href="index.php">Home</a> |
-                <a href="buying.php">Buying</a> |
-                <a href="orders.php">Orders</a> |
+<!--                <a href="buying.php">Buying</a> |
+                <a href="orders.php">Orders</a> |-->
                 <a href="buy.php">Buy</a> |
                 <a href="orders2.php">Your Orders</a> |
                 <a href="account.php">Update Account</a>
