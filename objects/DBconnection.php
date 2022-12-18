@@ -3,11 +3,18 @@
 #
 #DEVELOPER              DATE            COMMENTS
 #Vithursan Nagalingam   2022-11-22      Created the code for connecting to the database
+#Vithursan Nagalingam   2022-12-18      Added user sql login
 
 
 // Constants
 define("serverName", "mysql:host=localhost;dbname=database2135106");
-define("serverUser", "root");
+
+# Admin
+//define("serverUser", "root");
+//define("serverPassword", "1234");
+
+# User
+define("serverUser", "user-2135106");
 define("serverPassword", "1234");
 
 // Connection to the database

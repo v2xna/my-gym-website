@@ -199,3 +199,6 @@ An error occured on the line 59 of the file C:\xampp\htdocs\2135106\searchOrders
 An error occured on the line 59 of the file C:\xampp\htdocs\2135106\searchOrders.php: Undefined array key "order_id"(2) at 2022/12/12 18:33:57 
 An error occured on the line 59 of the file C:\xampp\htdocs\2135106\searchOrders.php: Undefined array key "order_id"(2) at 2022/12/12 18:34:21 
 An error occured on the line 56 of the file C:\xampp\htdocs\2135106\orders.php: Trying to access array offset on value of type null(2) at 2022/12/15 20:48:51 
+An exception occured on the line 263 of the file C:\xampp\htdocs\2135106\objects\order.php: SQLSTATE[42000]: Syntax error or access violation: 1370 execute command denied to user 'user-2135106'@'localhost' for routine 'database2135106.orders_insert'(42000) on 2022/12/18 11:44:52 
+An exception occured on the line 263 of the file C:\xampp\htdocs\2135106\objects\order.php: SQLSTATE[42000]: Syntax error or access violation: 1370 execute command denied to user 'user-2135106'@'localhost' for routine 'database2135106.orders_insert'(42000) on 2022/12/18 11:49:11 
+An exception occured on the line 263 of the file C:\xampp\htdocs\2135106\objects\order.php: SQLSTATE[42000]: Syntax error or access violation: 1370 execute command denied to user 'user-2135106'@'localhost' for routine 'database2135106.orders_insert'(42000) on 2022/12/18 11:49:18 
