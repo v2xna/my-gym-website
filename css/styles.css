@@ -17,9 +17,38 @@ body {
     width: 940px;
 }
 
+
+
+ul li {
+    list-style-type: none;
+    margin-right: 12px;
+}
+
+.navbar {
+    background: black;
+    padding: 12px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.navbar ul {
+    display: flex;
+}
+
 .gymlogo {
-    height: 200px;
-    width: 200px;
+/*    height: 200px;
+    width: 200px;*/
+    height: 150px;
+    width: 150px;
 }
 
 
@@ -91,10 +120,6 @@ table, th, td {
     opacity: 0.3;
 }
 
-a {
-    text-decoration: none;
-    font-size: 19px;
-}
 
 div {
     margin-bottom: 20px;

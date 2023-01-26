@@ -144,22 +144,37 @@ function pageTop($title) {
                         }
         
                      ?>">
-            <img class="<?php
-                           if (isset($_GET["action"]) && strtoupper(htmlspecialchars($_GET["action"])) == strtoupper("print")) {
-                               echo "gymlogoLessOpacity";
-                           }
-                           else {
-                               echo "gymlogo";
-                           }
-                           
-                        ?>" src="<?php echo FILE_GYMLOGO; ?>" alt="Gym logo"/>
-            <nav>
-                <a href="index.php">Home</a> |
-<!--                <a href="buying.php">Buying</a> |
-                <a href="orders.php">Orders</a> |-->
-                <a href="buy.php">Buy</a> |
-                <a href="orders2.php">Your Orders</a> |
-                <a href="account.php">Update Account</a>
+            <nav class="navbar">
+                <img class="<?php
+                               if (isset($_GET["action"]) && strtoupper(htmlspecialchars($_GET["action"])) == strtoupper("print")) {
+                                   echo "gymlogoLessOpacity";
+                               }
+                               else {
+                                   echo "gymlogo";
+                               }
+
+                            ?>" src="<?php echo FILE_GYMLOGO; ?>" alt="Gym logo"/>
+                <ul class="nav">
+                    <li>
+                        <a href="index.php">Home</a> 
+                    </li>
+                    <li>
+                        <a href="buy.php">Buy</a>
+                    </li>
+                    <li>
+                        <a href="orders2.php">Your Orders</a>
+                    </li>
+                    <li>
+                        <a href="account.php">Update Account</a>
+                    </li>
+                </ul>
+            
+                
+<!--                <a href="buying.php">Buying</a> 
+                <a href="orders.php">Orders</a> -->
+                 
+                 
+                
             </nav>
 
     <?php
